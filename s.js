@@ -61,12 +61,26 @@ async function main() {
     }
 	
     document.getElementById("butt-eheh").onclick = () => {
-	let lat, lon;
 	navigator.geolocation.getCurrentPosition((position) => {
+	    let lat, lon;
 	    lat = position.coords.latitude;
 	    lon = position.coords.longitude;
+
+	    console.log(position);
+	    console.log(lat);
+
+	    let pluie = await rain(lat,lon);
+	    document.getElementById('rain-big-icon').classList.add(pluie.icon);
+	    
+	    if (pluie.text) {
+		document.getElementById("p-quand-pluie").innerHTML = (pluie.text);
+	    } else {
+		document.getElementById("col-quand-pluie").remove();
+	    }
+	
+	    
+	    
 	});
-	alert(lat, lon);
     };
 }
 
