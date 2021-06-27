@@ -18,10 +18,10 @@
     <title>🪁</title>
   </head>
   <body>
-    <div class="container-fluid">
+    <div class="container py-2 px-4">
       <!-- <div class="row row-cols-1 row-cols-md-2 g-4"> -->
 	<div class="row">
-	  <div class="card mb-3">
+	  <div class="card mb-3" id="card-rain">
 	    <div class="card-body">
 	      <div class="row">
 		<div class="col align-self-center">
@@ -37,7 +37,7 @@
 	    <div class="card-body">
 	      <div class="row">
 		<div class="col align-self-center">
-		  <p class="card-text text-center"><img src="https://upload.wikimedia.org/wikipedia/commons/2/26/76_BUS_RATP.png" style="width:3rem;"/>
+		  <p class="card-text text-center"><img src="https://upload.wikimedia.org/wikipedia/commons/2/26/76_BUS_RATP.png" style="width:3rem;"/></p>
 		</div>
 		<div class="col align-self-center">
 		  <p class="card-text" id="bus76"></p>
@@ -48,9 +48,13 @@
 	  <div class="card mb-3 align-self-center">
 	    <canvas class="" id="myCanvas" width="300" height="300"></canvas>
 	  </div>
-	</div>
-	<div class="d-grid gap-2">
-	  <button id="butt-eheh" type="button" class="btn btn-outline-info">Primary</button>
+	  <div class="card border-info" id="butt-eheh">
+	    <a class="card-block stretched-link text-decoration-none" href="#">
+		<div class="col align-self-center">
+		  <p class="card-text text-center">Géoloc</p>
+		</div>
+	    </a>
+	  </div>
 	</div>
       </div>
 

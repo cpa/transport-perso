@@ -25,7 +25,7 @@ async function rain(lat=48.8546,lon=2.3874) { // C'est Charonne / Léon Frot
 
     if (!ilVaPleuvoir) {
 	rtmp.icon = 'bi-emoji-laughing';
-	rtmp.text = tmp;
+	rtmp.text = "";
     } else {
 	rtmp.icon = 'bi-cloud-rain';
 	rtmp.text = tmp;
@@ -58,7 +58,7 @@ async function main() {
     if (pluie.text) {
 	document.getElementById("p-quand-pluie").innerHTML = (pluie.text);
     } else {
-	document.getElementById("col-quand-pluie").remove();
+	document.getElementById("col-quand-pluie").classList.add("d-none");
     }
 	
     document.getElementById("butt-eheh").onclick = () => {
@@ -67,16 +67,16 @@ async function main() {
 	    lat = position.coords.latitude;
 	    lon = position.coords.longitude;
 
-	    console.log(position);
-	    console.log(lat);
+	    document.getElementById('card-rain').classList.add("border-info");
 
 	    let pluie = await rain(lat,lon);
 	    document.getElementById('rain-big-icon').classList.add(pluie.icon);
 	    
 	    if (pluie.text) {
-		document.getElementById("p-quand-pluie").innerHTML = (pluie.text);
+		document.getElementById("col-quand-pluie").classList.remove("d-none");
+		document.getElementById("p-quand-pluie").innerHTML = pluie.text;
 	    } else {
-		document.getElementById("col-quand-pluie").remove();
+		document.getElementById("col-quand-pluie").classList.add("d-none");
 	    }
 	});
     };
