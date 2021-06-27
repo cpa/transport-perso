@@ -19,7 +19,7 @@ async function rain(lat=48.8546,lon=2.3874) { // C'est Charonne / Léon Frot
 	} else {
 	    tmp += '<i class = "bi-cloud-rain" style = "color: grey;" > </i >';
 	}
-        tmp += ' ' + horaire + ' / ';
+        tmp += ' ' + horaire + '<br />';
     }
 
     if (!ilVaPleuvoir) {
