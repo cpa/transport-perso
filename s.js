@@ -1,7 +1,6 @@
-async function rain(lat, lon) {
+async function rain(lat=48.8546,lon=2.3874) { // C'est Charonne / Léon Frot
     let rtmp = {};
     let tmp = "";
-    //let response = await fetch("http://webservice.meteofrance.com/rain?token=__Wj7dVSTjV9YGu1guveLyDq0g7S7TfTjaHBTPTpO0kj8__&lat=48.8646&lon=2.3984&lang=fr");
     let response = await fetch(`http://webservice.meteofrance.com/rain?token=__Wj7dVSTjV9YGu1guveLyDq0g7S7TfTjaHBTPTpO0kj8__&lat=${lat}&lon=${lon}&lang=fr`);
     let data = await response.json();
 
@@ -48,11 +47,6 @@ async function bus76() {
 
 
 async function main() {
-    let lat, lon;
-    navigator.geolocation.getCurrentPosition((position) => {
-	lat = position.coords.latitude;
-	lon = position.coords.longitude;
-    });
 
     let bus = await bus76();
     document.getElementById('bus76').innerHTML = bus;
@@ -66,6 +60,14 @@ async function main() {
 	document.getElementById("col-quand-pluie").remove();
     }
 	
+    document.getElementById("butt-eheh").onclick = () => {
+	let lat, lon;
+	navigator.geolocation.getCurrentPosition((position) => {
+	    lat = position.coords.latitude;
+	    lon = position.coords.longitude;
+	});
+	alert(lat, lon);
+    };
 }
 
 main();
