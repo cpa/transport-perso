@@ -12,7 +12,8 @@ async function rain(lat=48.8546,lon=2.3874) { // C'est Charonne / Léon Frot
 	}
 
 	let date = new Date(x.dt*1000);
-	let horaire = date.getHours() + ':' + date.getMinutes();
+	let minutes = mins = ('0'+date.getMinutes()).slice(-2);
+	let horaire = date.getHours() + ':' + minutes;
 
 	if (x.rain === 1) {
 	    tmp += '<i class = "bi-emoji-laughing" style = "color: grey;" > </i >';
