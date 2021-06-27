@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="s.js"></script>
+
+    <title>🪁</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <!-- <div class="row row-cols-1 row-cols-md-2 g-4"> -->
+	<div class="row">
+	  <div class="card mb-3">
+	    <div class="card-body">
+	      <div class="row">
+		<div class="col align-self-center">
+		  <p class="text-center"><i id="rain-big-icon" class="" style="font-size: 8rem; color: grey;"></i></p>
+		</div>
+		<div id="col-quand-pluie" class="col d-flex align-items-center">
+		  <p class="card-text" id="p-quand-pluie"></p>
+		</div>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="card mb-3">
+	    <div class="card-body">
+	      <div class="row">
+		<div class="col align-self-center">
+		  <p class="card-text text-center"><img src="https://upload.wikimedia.org/wikipedia/commons/2/26/76_BUS_RATP.png" style="width:3rem;"/>
+		</div>
+		<div class="col align-self-center">
+		  <p class="card-text" id="bus76"></p>
+		</div>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="card mb-3 align-self-center">
+	    <canvas class="" id="myCanvas" width="300" height="300"></canvas>
+	  </div>
+	</div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/451/fabric.min.js" integrity="sha512-qeu8RcLnpzoRnEotT3r1CxB17JtHrBqlfSTOm4MQzb7efBdkcL03t343gyRmI6OTUW6iI+hShiysszISQ/IahA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script>
+	var canvas = new fabric.Canvas('myCanvas');
+	fabric.Object.prototype.centeredRotation = false;
+	let c = canvas.getCenter();
+
+	let f = function(t, angle, opacity) {
+	let text = new fabric.Text(t, {
+	left: c.left, top: c.top,
+	fontFamily: 'Helvetica Neue',
+	fontSize: 15,
+	selectable: false,
+	fill: 'black',
+	opacity: opacity
+	});
+	text.center();
+	text.rotate(angle);
+	canvas.add(text);
+	}
+
+	f("   120 - 10 - 23 - 11", 90, 1);
+	f("   300 - 10 - 23 - 11", 30, 0.7);
+
+      </script>
+  </body>
+</html>
