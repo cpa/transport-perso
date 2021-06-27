@@ -61,7 +61,7 @@ async function main() {
     }
 	
     document.getElementById("butt-eheh").onclick = () => {
-	navigator.geolocation.getCurrentPosition((position) => {
+	navigator.geolocation.getCurrentPosition(async (position) => {
 	    let lat, lon;
 	    lat = position.coords.latitude;
 	    lon = position.coords.longitude;
@@ -77,9 +77,6 @@ async function main() {
 	    } else {
 		document.getElementById("col-quand-pluie").remove();
 	    }
-	
-	    
-	    
 	});
     };
 }
