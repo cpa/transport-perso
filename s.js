@@ -64,10 +64,10 @@ async function main() {
     document.getElementById("butt-eheh").onclick = () => {
 	try {
 	    navigator.geolocation.getCurrentPosition(async (position) => {
+		alert(position.coords);
 		let lat, lon;
 		lat = position.coords.latitude;
 		lon = position.coords.longitude;
-		
 		document.getElementById('card-rain').classList.add("border-info");
 
 		let pluie = await rain(lat,lon);
