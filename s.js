@@ -64,7 +64,7 @@ async function main() {
     document.getElementById("butt-eheh").onclick = () => {
 	try {
 	    navigator.geolocation.getCurrentPosition(async (position) => {
-		alert(position.coords);
+		document.body.append(lat + ' ' + lon + '<br />');
 		let lat, lon;
 		lat = position.coords.latitude;
 		lon = position.coords.longitude;
@@ -81,7 +81,7 @@ async function main() {
 		}
 	    });
 	} catch (err) {
-	    alert(err);
+	    document.body.append(err + '<br />');
 	}
     };
 }
