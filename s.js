@@ -62,23 +62,27 @@ async function main() {
     }
 	
     document.getElementById("butt-eheh").onclick = () => {
-	navigator.geolocation.getCurrentPosition(async (position) => {
-	    let lat, lon;
-	    lat = position.coords.latitude;
-	    lon = position.coords.longitude;
+	try {
+	    navigator.geolocation.getCurrentPosition(async (position) => {
+		let lat, lon;
+		lat = position.coords.latitude;
+		lon = position.coords.longitude;
+		
+		document.getElementById('card-rain').classList.add("border-info");
 
-	    document.getElementById('card-rain').classList.add("border-info");
-
-	    let pluie = await rain(lat,lon);
-	    document.getElementById('rain-big-icon').classList.add(pluie.icon);
-	    
-	    if (pluie.text) {
-		document.getElementById("col-quand-pluie").classList.remove("d-none");
-		document.getElementById("p-quand-pluie").innerHTML = pluie.text;
-	    } else {
-		document.getElementById("col-quand-pluie").classList.add("d-none");
-	    }
-	});
+		let pluie = await rain(lat,lon);
+		document.getElementById('rain-big-icon').classList.add(pluie.icon);
+		
+		if (pluie.text) {
+		    document.getElementById("col-quand-pluie").classList.remove("d-none");
+		    document.getElementById("p-quand-pluie").innerHTML = pluie.text;
+		} else {
+		    document.getElementById("col-quand-pluie").classList.add("d-none");
+		}
+	    });
+	} catch (err) {
+	    alert(err);
+	}
     };
 }
 
